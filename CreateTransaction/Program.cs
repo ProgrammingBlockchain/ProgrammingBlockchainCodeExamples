@@ -1,4 +1,4 @@
-﻿namespace GetBitcoinAddress
+﻿namespace CreateTransaction
 {
     internal class Program
     {
