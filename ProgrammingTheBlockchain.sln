@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetBitcoinAddress", "GetBitcoinAddress\GetBitcoinAddress.csproj", "{73C6A268-DD15-40F2-9385-F5D949F92CAC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateTransaction", "CreateTransaction\CreateTransaction.csproj", "{B57B9E0E-83D0-4339-B20C-D234175AA6D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitcoinAddress", "BitcoinAddress\BitcoinAddress.csproj", "{E8594880-7F0B-424C-9205-1F9E84A072ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentScript", "PaymentScript\PaymentScript.csproj", "{4A71F9D4-6017-4429-8771-7657C7027288}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrivateKey", "PrivateKey\PrivateKey.csproj", "{8F4F2562-A2CA-4885-8638-F71CC44F5648}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +17,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{73C6A268-DD15-40F2-9385-F5D949F92CAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{73C6A268-DD15-40F2-9385-F5D949F92CAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{73C6A268-DD15-40F2-9385-F5D949F92CAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{73C6A268-DD15-40F2-9385-F5D949F92CAC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B57B9E0E-83D0-4339-B20C-D234175AA6D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B57B9E0E-83D0-4339-B20C-D234175AA6D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B57B9E0E-83D0-4339-B20C-D234175AA6D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B57B9E0E-83D0-4339-B20C-D234175AA6D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8594880-7F0B-424C-9205-1F9E84A072ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8594880-7F0B-424C-9205-1F9E84A072ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8594880-7F0B-424C-9205-1F9E84A072ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8594880-7F0B-424C-9205-1F9E84A072ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A71F9D4-6017-4429-8771-7657C7027288}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A71F9D4-6017-4429-8771-7657C7027288}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A71F9D4-6017-4429-8771-7657C7027288}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A71F9D4-6017-4429-8771-7657C7027288}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F4F2562-A2CA-4885-8638-F71CC44F5648}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F4F2562-A2CA-4885-8638-F71CC44F5648}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F4F2562-A2CA-4885-8638-F71CC44F5648}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F4F2562-A2CA-4885-8638-F71CC44F5648}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
