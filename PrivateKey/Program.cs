@@ -17,10 +17,9 @@ namespace PrivateKey
             bool WifIsBitcoinSecret = mainNetPrivateKey == privateKey.GetWif(Network.Main);
             Console.WriteLine(WifIsBitcoinSecret); // True
 
-
+            
             BitcoinSecret bitcoinPrivateKey = privateKey.GetWif(Network.Main); // L5B67zvrndS5c71EjkrTJZ99UaoVbMUAK58GKdQUfYCpAa6jypvn
             Key samePrivateKey = bitcoinPrivateKey.PrivateKey;
-            Console.WriteLine(privateKey == samePrivateKey); // True
 
             PubKey publicKey = privateKey.PubKey;
             BitcoinPubKeyAddress bitcoinPubicKey = publicKey.GetAddress(Network.Main); // 1PUYsjwfNmX64wS368ZR5FMouTtUmvtmTY
