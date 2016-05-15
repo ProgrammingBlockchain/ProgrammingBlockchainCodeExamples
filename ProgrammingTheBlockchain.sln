@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitcoinAddress", "BitcoinAddress\BitcoinAddress.csproj", "{E8594880-7F0B-424C-9205-1F9E84A072ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.1BitcoinAddress", "BitcoinAddress\1.1BitcoinAddress.csproj", "{E8594880-7F0B-424C-9205-1F9E84A072ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentScript", "PaymentScript\PaymentScript.csproj", "{4A71F9D4-6017-4429-8771-7657C7027288}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.2PaymentScript", "PaymentScript\1.2PaymentScript.csproj", "{4A71F9D4-6017-4429-8771-7657C7027288}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrivateKey", "PrivateKey\PrivateKey.csproj", "{8F4F2562-A2CA-4885-8638-F71CC44F5648}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.3PrivateKey", "PrivateKey\1.3PrivateKey.csproj", "{8F4F2562-A2CA-4885-8638-F71CC44F5648}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transaction", "Transaction\Transaction.csproj", "{F50F451C-4D92-468A-BBA2-1C18D3B9EA5F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.4Transaction", "Transaction\1.4Transaction.csproj", "{F50F451C-4D92-468A-BBA2-1C18D3B9EA5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpendYourCoins", "SpendYourCoins\SpendYourCoins.csproj", "{D8C1E36E-BDB6-414A-A7CD-AAB042BA6F0F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.5SpendYourCoins", "SpendYourCoins\1.5SpendYourCoins.csproj", "{D8C1E36E-BDB6-414A-A7CD-AAB042BA6F0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProofOfOwnership", "ProofOfOwnership\ProofOfOwnership.csproj", "{4916EFA5-06BD-45EB-8263-3DD572F93265}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.6ProofOfOwnership", "ProofOfOwnership\1.6ProofOfOwnership.csproj", "{4916EFA5-06BD-45EB-8263-3DD572F93265}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
