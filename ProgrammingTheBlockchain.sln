@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrivateKey", "PrivateKey\Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transaction", "Transaction\Transaction.csproj", "{F50F451C-4D92-468A-BBA2-1C18D3B9EA5F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpendYourCoins", "SpendYourCoins\SpendYourCoins.csproj", "{D8C1E36E-BDB6-414A-A7CD-AAB042BA6F0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProofOfOwnership", "ProofOfOwnership\ProofOfOwnership.csproj", "{4916EFA5-06BD-45EB-8263-3DD572F93265}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{F50F451C-4D92-468A-BBA2-1C18D3B9EA5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F50F451C-4D92-468A-BBA2-1C18D3B9EA5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F50F451C-4D92-468A-BBA2-1C18D3B9EA5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8C1E36E-BDB6-414A-A7CD-AAB042BA6F0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8C1E36E-BDB6-414A-A7CD-AAB042BA6F0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8C1E36E-BDB6-414A-A7CD-AAB042BA6F0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8C1E36E-BDB6-414A-A7CD-AAB042BA6F0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4916EFA5-06BD-45EB-8263-3DD572F93265}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4916EFA5-06BD-45EB-8263-3DD572F93265}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4916EFA5-06BD-45EB-8263-3DD572F93265}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4916EFA5-06BD-45EB-8263-3DD572F93265}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
