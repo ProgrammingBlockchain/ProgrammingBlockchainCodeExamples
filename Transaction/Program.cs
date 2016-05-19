@@ -1,10 +1,9 @@
-﻿using System;
+﻿// ReSharper disable All
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using NBitcoin;
 using QBitNinja.Client;
-// ReSharper disable All
-
 
 namespace Transaction
 {
@@ -32,7 +31,7 @@ namespace Transaction
                 Money amount = coin.Amount;
 
                 Console.WriteLine(amount.ToDecimal(MoneyUnit.BTC));
-                var paymentScript = coin.GetScriptCode();
+                var paymentScript = coin.ScriptPubKey;
                 Console.WriteLine(paymentScript);  // It's the ScriptPubKey
                 var address = paymentScript.GetDestinationAddress(Network.Main);
                 Console.WriteLine(address);
@@ -74,7 +73,7 @@ namespace Transaction
                 Money amount = coin.Amount;
 
                 Console.WriteLine(amount.ToDecimal(MoneyUnit.BTC));
-                var paymentScript = coin.GetScriptCode();
+                var paymentScript = coin.ScriptPubKey;
                 Console.WriteLine(paymentScript);  // It's the ScriptPubKey
                 var address = paymentScript.GetDestinationAddress(Network.Main);
                 Console.WriteLine(address);
@@ -94,8 +93,10 @@ namespace Transaction
                 Console.WriteLine(address);
                 Console.WriteLine();
             }
-            
 
+
+            var fee = transaction.GetFee(spentCoins.ToArray());
+            Console.WriteLine(fee);
 
             var inputs = transaction.Inputs;
             foreach (TxIn input in inputs)

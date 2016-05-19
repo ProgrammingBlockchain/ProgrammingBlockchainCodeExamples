@@ -1,11 +1,12 @@
-﻿using System;
+﻿// ReSharper disable All
+using System;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using NBitcoin;
+using NBitcoin.Protocol;
 using QBitNinja.Client;
 using QBitNinja.Client.Models;
-
-// ReSharper disable All
 
 namespace SpendYourCoins
 {
@@ -40,13 +41,11 @@ namespace SpendYourCoins
 
             var receivedCoins = transactionResponse.ReceivedCoins;
             OutPoint outPointToSpend = null;
-            Script scriptPubKeyToSpend = null;
             foreach (var coin in receivedCoins)
             {
                 if (coin.TxOut.ScriptPubKey == bitcoinPrivateKey.ScriptPubKey)
                 {
                     outPointToSpend = coin.Outpoint;
-                    scriptPubKeyToSpend = coin.GetScriptCode();
                 }
             }
             if(outPointToSpend == null)
@@ -97,18 +96,37 @@ namespace SpendYourCoins
                 ScriptPubKey = TxNullDataTemplate.Instance.GenerateScriptPubKey(bytes)
             });
 
+            //Console.WriteLine(transaction);
 
-            TxIn input = transaction.Inputs[0];
-            input.ScriptSig = hallOfTheMakersAddress.ScriptPubKey;
+            //var address = new BitcoinPubKeyAddress("mzK6Jy5mer3ABBxfHdcxXEChsn3mkv8qJv");
+            //transaction.Inputs[0].ScriptSig = address.ScriptPubKey;
+
+            // It is also OK:
+            transaction.Inputs[0].ScriptSig =  bitcoinPrivateKey.ScriptPubKey;
             transaction.Sign(bitcoinPrivateKey, false);
 
             BroadcastResponse broadcastResponse = client.Broadcast(transaction).Result;
 
             if (!broadcastResponse.Success)
             {
-                Console.WriteLine("ErrorCode: " + broadcastResponse.Error.ErrorCode);
+                Console.WriteLine(string.Format("ErrorCode: {0}", broadcastResponse.Error.ErrorCode));
                 Console.WriteLine("Error message: " + broadcastResponse.Error.Reason);
             }
+            else
+            {
+                Console.WriteLine("Success! You can check out the hash of the transaciton in any block explorer:");
+                Console.WriteLine(transaction.GetHash());
+            }
+
+            //using (var node = Node.ConnectToLocal(network)) //Connect to the node
+            //{
+            //    node.VersionHandshake(); //Say hello
+            //                             //Advertize your transaction (send just the hash)
+            //    node.SendMessage(new InvPayload(InventoryType.MSG_TX, transaction.GetHash()));
+            //    //Send it
+            //    node.SendMessage(new TxPayload(transaction));
+            //    Thread.Sleep(500); //Wait a bit
+            //}
 
 
             Console.ReadLine();
