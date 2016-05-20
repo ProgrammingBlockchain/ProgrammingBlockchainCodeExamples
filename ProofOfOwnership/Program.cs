@@ -77,21 +77,22 @@ namespace ProofOfOwnership
 
             /*
              * Actually your wallet software is what decodes addresses into ScriptPubKeys.
-             * Or decodes ScriptPubKeys to addresses.
-             * Here is how you do it:
+             * Or decodes ScriptPubKeys to addresses (when it is possible).
+             * Here is how it does it:
              */
 
             /* 
-             * First it is important to know a ScriptPubKey may contain one or multiple public keys.
-             * Public keys can be encoded into a bitcoin address.
-             * When a ScriptPubKey contains multiple public keys, it is called multi-sig.
+             * In early times a ScriptPubKey contained one public key.
+             * Here is the first ScriptPubKey ever:
+             * 04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f OP_CHECKSIG
+             * From a public key you can derive a bitcoin address.
              * So in order to get the first address ever, we can get the first public key ever:
              */
 
             var firstPubKeyEver = firstScriptPubKeyEver.GetDestinationPublicKeys().First();
 
             /*
-             * You can get a bitcoin address from a public key with the network identifier:
+             * You can get a bitcoin address from a public key and with the network identifier:
              */
             var firstBitcoinAddressEver = firstPubKeyEver.GetAddress(Network.Main);
 
