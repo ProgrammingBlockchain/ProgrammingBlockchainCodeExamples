@@ -31,6 +31,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.0OtherAssets", "4.1OtherA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.1UnitTests", "4.1UnitTests\4.1UnitTests.csproj", "{76DF51D2-93E3-4B9A-8EC4-441BAED688ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.2LiquidDemocracy", "4.2LiquidDemocracy\4.2LiquidDemocracy.csproj", "{6B7205A0-1D0C-425F-9429-E29DE0E9C6FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.3ProofOfBurn", "4.3ProofOfBurn\4.3ProofOfBurn.csproj", "{7EEE7CFF-5CBC-4B56-9430-A56CE2D887ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +97,14 @@ Global
 		{76DF51D2-93E3-4B9A-8EC4-441BAED688ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76DF51D2-93E3-4B9A-8EC4-441BAED688ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76DF51D2-93E3-4B9A-8EC4-441BAED688ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B7205A0-1D0C-425F-9429-E29DE0E9C6FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B7205A0-1D0C-425F-9429-E29DE0E9C6FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B7205A0-1D0C-425F-9429-E29DE0E9C6FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B7205A0-1D0C-425F-9429-E29DE0E9C6FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EEE7CFF-5CBC-4B56-9430-A56CE2D887ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EEE7CFF-5CBC-4B56-9430-A56CE2D887ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EEE7CFF-5CBC-4B56-9430-A56CE2D887ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EEE7CFF-5CBC-4B56-9430-A56CE2D887ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
