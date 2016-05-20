@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.1BitcoinAddress", "BitcoinAddress\1.1BitcoinAddress.csproj", "{E8594880-7F0B-424C-9205-1F9E84A072ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.2PaymentScript", "PaymentScript\1.2PaymentScript.csproj", "{4A71F9D4-6017-4429-8771-7657C7027288}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.2ScriptPubKey", "PaymentScript\1.2ScriptPubKey.csproj", "{4A71F9D4-6017-4429-8771-7657C7027288}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.3PrivateKey", "PrivateKey\1.3PrivateKey.csproj", "{8F4F2562-A2CA-4885-8638-F71CC44F5648}"
 EndProject

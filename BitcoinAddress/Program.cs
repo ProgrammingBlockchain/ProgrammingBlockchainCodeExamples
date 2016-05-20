@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Linq;
+using System.Runtime.InteropServices;
 using NBitcoin;
+using NBitcoin.DataEncoders;
+
 // ReSharper disable All
 
 namespace BitcoinAddress
@@ -23,7 +27,7 @@ namespace BitcoinAddress
 
             Console.WriteLine(mainNetAddress); // 1PUYsjwfNmX64wS368ZR5FMouTtUmvtmTY
             Console.WriteLine(testNetAddress); // n3zWAo2eBnxLr3ueohXnuAa8mTVBhxmPhq
-
+            
             Console.ReadLine();
         }
     }
