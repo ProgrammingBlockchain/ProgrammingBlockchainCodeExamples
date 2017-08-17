@@ -7,7 +7,7 @@
 //
 // 1. Load blockchain headers from disk (if not available will be requested from 
 //    the full node but that takes longer),
-// 2. Connect to a full BitCoin node (this samle is hard coded to use the loopback 
+// 2. Connect to a full BitCoin node (this sample is hard coded to use the loopback 
 //    address so the full node will need to be on the same machine),
 // 3. Keep the blockchain headers synchronised with the full node and periodically
 //    save them to disk,
@@ -18,13 +18,13 @@
 // any kind of use on the main BitCoin network.
 //
 // Dependencies:
-// The program relies on NBitCoin (https://github.com/MetacoSA/NBitcoin) for the 
+// The program relies on NBitcoin (https://github.com/MetacoSA/NBitcoin) for the 
 // underlying BitCoin primitives.
 //
 // Hints:
-// The original prupose for this sample was to gain an understanding of the BitCoin
+// The original purpose for this sample was to gain an understanding of the BitCoin
 // protocol. An invaluable tool for anyone attempting the same thing is WireShark
-// (https://www.wireshark.org/) which has a builtin BitCoin protocol decoder. To
+// (https://www.wireshark.org/) which has a built in BitCoin protocol decoder. To
 // use WireShark with the loopback adapter on Windows install Npcap (https://nmap.org/npcap/).
 //
 // The command line used for the local bitcoin full node:
@@ -180,10 +180,6 @@ namespace BitCoinTest
             var parameters = new NodeConnectionParameters();
             parameters.IsRelay = false;
 
-            NodeRequirement req = new NodeRequirement();
-            req.RequiredServices = NodeServices.NODE_BLOOM;
-            req.SupportSPV = true;
-
             var scanLocation = new BlockLocator();
             scanLocation.Blocks.Add(chain.Tip != null ? chain.Tip.HashBlock : _network.GetGenesis().GetHash());
 
@@ -264,7 +260,7 @@ namespace BitCoinTest
                 logger.DebugFormat("Node disconnected, chain height " + chain.Height + ".");
             };
 
-            node.VersionHandshake(req, ct);
+            node.VersionHandshake(ct);
             node.PingPong(ct);
 
             logger.DebugFormat("Requesting block headers greater than height {0}.", chain.Height);
