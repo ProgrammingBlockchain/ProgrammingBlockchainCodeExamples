@@ -41,7 +41,7 @@ namespace _3._0OtherTypesOfOwnerships
             Console.WriteLine("Pay to public key hash : " + key.PubKey.Hash.ScriptPubKey);
 
             
-            /* MUSTISIG */
+            /* MULTI SIG */
 
             Key bob = new Key();
             Key alice = new Key();
