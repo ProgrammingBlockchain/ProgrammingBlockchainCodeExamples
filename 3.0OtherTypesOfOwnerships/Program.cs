@@ -145,8 +145,8 @@ namespace _3._0OtherTypesOfOwnerships
                  builder
 		    .AddCoins(coin)
 		    .AddKeys(bobPrivateKey)
-        //At this line, SignTransaction(unSigned) has the identical functionality with the SignTransaction(aliceSigned).
-        //It's because unsigned transaction has already been signed by Alice private key from above.
+            //At this line, SignTransaction(unSigned) has the identical functionality with the SignTransaction(aliceSigned).
+            //It's because unsigned transaction has already been signed by Alice private key from above.
                 .SignTransaction(unsigned);
 
             //Now, Bob and Alice can combine their signature into one transaction. This transaction will then be valid in terms of its signature as Bob and Alice have provided two of the signatures from the three owner signatures that were initially provided. The requirements of the 'two-of-three' multi sig have therefore been met.
@@ -290,14 +290,40 @@ namespace _3._0OtherTypesOfOwnerships
             Console.WriteLine($"fullySignedForP2shPayment: {fullySignedForP2shPayment}");
 
 
+		
+		
+		
+	    //==========================================================================================
+            //Chapter5. P2WSH(Pay To Witness Script Hash)
 
-
-            // P2SH(P2WPKH)
+            //That you can print with the following code:
+            var privateKeyForP2wsh = new Key();
+            var scriptPubKeyForP2wsh = privateKeyForP2wsh.PubKey.ScriptPubKey.WitHash.ScriptPubKey;
+            Console.WriteLine($"scriptPubKeyForP2wsh: {scriptPubKeyForP2wsh}");
             
-            Console.WriteLine(key.PubKey.WitHash.ScriptPubKey.Hash.ScriptPubKey);
 
-            Console.WriteLine(key.PubKey.ScriptPubKey.WitHash.ScriptPubKey.Hash.ScriptPubKey);
+		
+		
+            //==========================================================================================
+            //Chapter6. P2W* over P2SH
 
+            //Printing the ScriptPubKey:
+            var privateKeyForP2shP2wpkh = new Key();
+            Console.WriteLine(privateKeyForP2shP2wpkh.PubKey.WitHash.ScriptPubKey.Hash.ScriptPubKey);
+            Console.WriteLine($"privateKeyForP2shP2wpkh.PubKey.WitHash.ScriptPubKey.Hash.ScriptPubKey: {privateKeyForP2shP2wpkh.PubKey.WitHash.ScriptPubKey.Hash.ScriptPubKey}");
+
+
+            //Let’s print the scriptPubKey by following the first rule:
+
+            //1.Replacing the ScriptPubKey by its P2SH equivalent.
+            var privateKeyForP2shP2wpkhEx = new Key();
+            Console.WriteLine(privateKeyForP2shP2wpkhEx.PubKey.ScriptPubKey.WitHash.ScriptPubKey.Hash.ScriptPubKey);
+
+            //2.The former ScriptPubKey will be placed as the only push in the scriptSig in the spending transaction.
+
+	    //3.All other data will be pushed in the witness of the spending transaction.
+
+		
             //=========================================================================================
             //Chapter7. Arbitrary
 			
