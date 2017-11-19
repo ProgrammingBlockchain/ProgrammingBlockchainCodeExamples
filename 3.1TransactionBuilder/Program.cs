@@ -14,9 +14,6 @@ namespace _3._1TransactionBuilder
             //===========================================================================================
             //Chapter8. Using the TransactionBuilder
 
-            //Now let’s gather some Coins. 
-            //For that, let us create a fake transaction with some funds on it.
-            //Let’s say that the transaction has a P2PKH, P2PK, and multi-sig coin of Bob and Alice.
             RandomUtils.Random = new UnsecureRandom();
 
             
@@ -36,8 +33,8 @@ namespace _3._1TransactionBuilder
             BitcoinSecret bitcoinSecretForScanKey = new BitcoinSecret("L2f9Ntm8UUeTLZFv25oZ8WoRW8kAofUjdUdtCq9axCp1hZrsLZja", Network.Main);
 
 
-            Key bobPrivateKey = bitcoinSecretForAlice.PrivateKey;
-            Key alicePrivateKey = bitcoinSecretForBob.PrivateKey;
+            Key bobPrivateKey = bitcoinSecretForBob.PrivateKey;
+            Key alicePrivateKey = bitcoinSecretForAlice.PrivateKey;
             Key satoshiPrivateKey = bitcoinSecretForSatoshi.PrivateKey;
             Key privateKeyForScanKey = bitcoinSecretForScanKey.PrivateKey;
 
