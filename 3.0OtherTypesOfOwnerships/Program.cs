@@ -109,61 +109,71 @@ namespace _3._0OtherTypesOfOwnerships
 
             Console.WriteLine(key.PubKey.ScriptPubKey.WitHash.ScriptPubKey.Hash.ScriptPubKey);
 
-            // Arbitrary
+            //=========================================================================================
+            //Chapter7. Arbitrary
+			
+            //So first, let’s build the RedeemScript,
+			BitcoinAddress bitcoinAddressOfThisBook = BitcoinAddress.Create("1KF8kUVHK42XzgcmJF4Lxz4wcL5WDL97PB");
+            var birthDate = Encoding.UTF8.GetBytes("18/07/1988");
+            var birthDateHash = Hashes.Hash256(birthDate);
+            var redeemScriptPubKeyForSendingCoinToBook = new Script(
+                            "OP_IF "
+                                + "OP_HASH256 " + Op.GetPushOp(birthDateHash.ToBytes()) + " OP_EQUAL " +
+                            "OP_ELSE "
+                                + bitcoinAddressOfThisBook.ScriptPubKey + " " +
+                            "OP_ENDIF");
 
-            BitcoinAddress address = BitcoinAddress.Create("1KF8kUVHK42XzgcmJF4Lxz4wcL5WDL97PB");
-            var birth = Encoding.UTF8.GetBytes("18/07/1988");
-            var birthHash = Hashes.Hash256(birth);
-            redeemScript = new Script(
-                "OP_IF "
-                    + "OP_HASH256 " + Op.GetPushOp(birthHash.ToBytes()) + " OP_EQUAL " +
-                "OP_ELSE "
-                    + address.ScriptPubKey + " " +
-                "OP_ENDIF");
+            
+            //Let’s say I sent money with such redeemScriptPubKeyForSendingCoinToBook:
+            var txForSendingCoinToBook = new Transaction();
+            txForSendingCoinToBook.Outputs.Add(new TxOut(Money.Parse("0.0001"), redeemScriptPubKeyForSendingCoinToBook.Hash));
+            var scriptCoinForSendingToBook = txForSendingCoinToBook.Outputs.AsCoins().First().ToScriptCoin(redeemScriptPubKeyForSendingCoinToBook);
 
-            var tx = new Transaction();
-            tx.Outputs.Add(new TxOut(Money.Parse("0.0001"), redeemScript.Hash));
-            scriptCoin = tx.Outputs.AsCoins().First().ToScriptCoin(redeemScript);
 
-            //Create spending transaction
-            Transaction spending = new Transaction();
-            spending.AddInput(new TxIn(new OutPoint(tx, 0)));
+            //So let’s create a transaction that want to spend such output:
+            Transaction txSpendingCoinOfThisBook = new Transaction();
+            txSpendingCoinOfThisBook.AddInput(new TxIn(new OutPoint(txForSendingCoinToBook, 0)));
 
-            ////Option 1 : Spender knows my birthdate
-            Op pushBirthdate = Op.GetPushOp(birth);
-            Op selectIf = OpcodeType.OP_1; //go to if
-            Op redeemBytes = Op.GetPushOp(redeemScript.ToBytes());
+            
+            //Option 1 : Spender knows my birth date.
+            Op pushBirthdate = Op.GetPushOp(birthDate);
+            //Go to IF.
+            Op selectIf = OpcodeType.OP_1; 
+            Op redeemBytes = Op.GetPushOp(redeemScriptPubKeyForSendingCoinToBook.ToBytes());
             Script scriptSig = new Script(pushBirthdate, selectIf, redeemBytes);
-            spending.Inputs[0].ScriptSig = scriptSig;
+            txSpendingCoinOfThisBook.Inputs[0].ScriptSig = scriptSig;
+            
 
             //Verify the script pass
-            var result = spending
+            var verificationByBirthDate = txSpendingCoinOfThisBook
+                           .Inputs
+                           .AsIndexedInputs()
+                           .First()
+                           .VerifyScript(txForSendingCoinToBook.Outputs[0].ScriptPubKey);
+            Console.WriteLine(verificationByBirthDate);
+            //Output:
+            //True
+            
+            
+            //Option 2 : Spender knows my private key.
+            //BitcoinSecret privateKeyRelatedToTheBookBitcoinAddress = new BitcoinSecret("PrivateKeyRepresentedInBase58StringRelatedToTheBookBitcoinAddress");
+            //var sig = txSpendingCoinOfThisBook.SignInput(privateKeyRelatedToTheBookBitcoinAddress, scriptCoinForSendingToBook);
+            //var p2pkhProof = PayToPubkeyHashTemplate
+            //    .Instance
+            //    .GenerateScriptSig(sig, privateKeyRelatedToTheBookBitcoinAddress.PrivateKey.PubKey);
+            ////Go to IF.
+            //selectIf = OpcodeType.OP_0; 
+            //scriptSig = p2pkhProof + selectIf + redeemBytes;
+            //txSpendingCoinOfThisBook.Inputs[0].ScriptSig = scriptSig;
+
+            
+            //Verify the script pass
+            var verificationByPrivateKey = txSpendingCoinOfThisBook
                             .Inputs
                             .AsIndexedInputs()
                             .First()
-                            .VerifyScript(tx.Outputs[0].ScriptPubKey);
-            Console.WriteLine(result); // True
-                                       ///////////
-
-            ////Option 2 : Spender knows my private key
-            BitcoinSecret secret = new BitcoinSecret("...");
-            var sig = spending.SignInput(secret, scriptCoin);
-            var p2pkhProof = PayToPubkeyHashTemplate
-                .Instance
-                .GenerateScriptSig(sig, secret.PrivateKey.PubKey);
-            selectIf = OpcodeType.OP_0; //go to else
-            scriptSig = p2pkhProof + selectIf + redeemBytes;
-            spending.Inputs[0].ScriptSig = scriptSig;
-
-
-            //Verify the script pass
-            result = spending
-                            .Inputs
-                            .AsIndexedInputs()
-                            .First()
-                            .VerifyScript(tx.Outputs[0].ScriptPubKey);
-            Console.WriteLine(result);
-            ///////////
+                            .VerifyScript(txForSendingCoinToBook.Outputs[0].ScriptPubKey);
+            Console.WriteLine(verificationByPrivateKey);
 
             Console.ReadLine();
         }
