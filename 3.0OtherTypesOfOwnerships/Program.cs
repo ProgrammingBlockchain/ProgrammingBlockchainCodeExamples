@@ -126,8 +126,14 @@ namespace _3._0OtherTypesOfOwnerships
             
             //Let’s say I sent money with such redeemScriptPubKeyForSendingCoinToBook:
             var txForSendingCoinToBook = new Transaction();
-            txForSendingCoinToBook.Outputs.Add(new TxOut(Money.Parse("0.0001"), redeemScriptPubKeyForSendingCoinToBook.Hash));
-            var scriptCoinForSendingToBook = txForSendingCoinToBook.Outputs.AsCoins().First().ToScriptCoin(redeemScriptPubKeyForSendingCoinToBook);
+            txForSendingCoinToBook.Outputs.Add(
+		    new TxOut(Money.Parse("0.0001"), 
+		    redeemScriptPubKeyForSendingCoinToBook.Hash));
+            var scriptCoinForSendingToBook = txForSendingCoinToBook
+		    .Outputs
+		    .AsCoins()
+		    .First()
+		    .ToScriptCoin(redeemScriptPubKeyForSendingCoinToBook);
 
 
             //So let’s create a transaction that want to spend such output:
